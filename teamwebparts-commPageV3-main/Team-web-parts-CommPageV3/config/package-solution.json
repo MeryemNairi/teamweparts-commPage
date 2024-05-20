@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "comm-page-v-2-client-side-solution",
+    "id": "7b345fe7-67ea-4409-90b6-f90fade4cad0",
+    "version": "3.4.2.3",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "Ameur Mohammed",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.18.2"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "CommPageV2 description"
+      },
+      "longDescription": {
+        "default": "CommPageV2 description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "comm-page-v-2 Feature",
+        "description": "The feature that activates elements of the comm-page-v-2 solution.",
+        "id": "b773189a-23aa-4104-96dc-16fe3c6eb561",
+        "version": "3.4.2.3"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/comm-page-v-2.sppkg"
+  }
+}

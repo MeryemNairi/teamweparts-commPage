@@ -1,0 +1,85 @@
+.FirstBanner_container{
+    width: 100%;
+    height: 550px;
+    position: relative;
+    overflow: hidden;
+}
+.FB_background{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-color:#002920;
+}
+.FB_Motif{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.FB_Motif img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.FB_Illustration{
+    position: absolute;
+    top: 25%;
+    left: 0;
+    z-index: 2;
+}
+.FB_Illustration img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scale: .9;
+}
+
+.FB_Logo{
+    position: absolute;
+    top: 35%;
+    left: 0;
+    display: flex;
+    
+    z-index: 3;
+}
+.FB_Logo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scale: .75;
+}
+
+@media screen and (min-width: 1400px){
+    .FB_Illustration{
+        
+        top: 20%;
+       
+    }
+    .FB_Logo{
+        
+        left: 10%;
+        
+    }
+    .FB_Logo img{
+        scale: .8;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .FB_Illustration{
+        
+        top: 20%;
+       
+    }
+    .FB_Logo{
+        
+        left: 7%;
+        
+    }
+    .FB_Logo img{
+        scale: .75;
+    }
+}
