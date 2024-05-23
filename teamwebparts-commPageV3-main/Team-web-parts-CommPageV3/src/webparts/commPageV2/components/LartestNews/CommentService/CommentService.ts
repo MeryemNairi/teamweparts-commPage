@@ -5,6 +5,7 @@ export interface IComment {
   date: Date;
   User: string;
   newsNews: string;
+
 }
 
 // Function to format date
@@ -18,10 +19,13 @@ export default class CommentService {
     try {
       const response = await sp.web.lists
         .getByTitle("commentV3")
-        .items.filter(`newsNews eq '${newsNews}'`) 
-        .select("comment", "date", "User", "newsNews") 
+        .items.filter(`newsNews eq '${newsNews}'`)
+        .select("comment", "date", "User", "newsNews")
         .get();
-  
+
+      // Vérifiez ici si response contient les données attendues
+      console.log('Response from SharePoint:', response);
+
       const formattedComments = response.map((comment) => ({
         ...comment,
         date: formatDate(comment.date),
@@ -31,7 +35,8 @@ export default class CommentService {
       throw new Error('Error fetching comments');
     }
   }
-  
+
+
 
   async postComment(comment: string, newsNews: string): Promise<void> {
     try {
@@ -40,11 +45,11 @@ export default class CommentService {
         comment: comment,
         date: new Date(),
         User: currentUser.Title,
-        newsNews: newsNews, 
+        newsNews: newsNews,
       });
     } catch (error) {
       throw new Error('Error submitting comment');
     }
   }
-  
+
 }
