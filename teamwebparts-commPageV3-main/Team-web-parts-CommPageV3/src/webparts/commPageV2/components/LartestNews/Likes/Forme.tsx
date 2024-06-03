@@ -4,7 +4,7 @@ import { submitForm, getFormData, deleteFormData } from './FormeService';
 import styles from './Forme.module.scss';
 import ThumbUpOffAltIcon from '@mui/icons-material/ThumbUpOffAlt';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
-//import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
+// import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 
 export const Forme: React.FC<IFormProps> = ({ context, newsId }) => {
@@ -17,7 +17,6 @@ export const Forme: React.FC<IFormProps> = ({ context, newsId }) => {
 
   const [formEntries, setFormEntries] = React.useState<IFormData[]>([]);
   const [showReactionOptions, setShowReactionOptions] = React.useState<boolean>(false);
-  //const [hoveredIcon, setHoveredIcon] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     fetchFormData();
@@ -78,6 +77,16 @@ export const Forme: React.FC<IFormProps> = ({ context, newsId }) => {
     }, 0);
   };
 
+  const totalDislikesByNewsId = (id: number) => {
+    const totalDislikes = formEntries.reduce((total, entry) => {
+      if (entry.newsId === id && entry.likes === -1) {
+        return total + entry.likes;
+      }
+      return total;
+    }, 0);
+    return totalDislikes * -1; // rendre la valeur positive
+  };
+
   return (
     <div>
       <div
@@ -95,7 +104,7 @@ export const Forme: React.FC<IFormProps> = ({ context, newsId }) => {
             <ThumbUpOffAltIcon style={{ color: 'white', fontSize: '25px' }} />
           )}
           <span style={{ color: 'white', fontSize: '12px', display: 'flex', height: '25px', alignItems: 'self-end' }}>
-            {totalLikesByNewsId(newsId)}
+            {isUserDisliked ? totalDislikesByNewsId(newsId) : totalLikesByNewsId(newsId)}
           </span>
         </button>
 
