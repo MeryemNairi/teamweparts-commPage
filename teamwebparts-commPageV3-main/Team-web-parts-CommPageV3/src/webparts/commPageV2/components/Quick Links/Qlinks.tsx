@@ -22,6 +22,14 @@ const Qlinks: React.FC = () => {
         setCurrentIndex(newIndex);
     };
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            goToNextSlide();
+        }, 2000); // Change slide every 2 seconds
+
+        return () => clearInterval(interval); // Cleanup interval on component unmount
+    }, [currentIndex]);
+
     const handleClick1 = (): void => {
         window.location.href = 'https://www.cnexia.com/';
     };

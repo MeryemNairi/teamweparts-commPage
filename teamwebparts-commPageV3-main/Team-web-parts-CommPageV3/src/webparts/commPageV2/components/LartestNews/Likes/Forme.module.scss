@@ -24,3 +24,36 @@
   }
 }
 
+
+
+
+
+
+.button_holder {
+  position: relative;
+  display: inline-block;
+}
+
+.reactionOptions {
+  position: absolute;
+  top: -40px; // Ajustez selon vos besoins
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.reactionButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.reactionButton:hover {
+  color: blue; // Changer la couleur au survol
+}

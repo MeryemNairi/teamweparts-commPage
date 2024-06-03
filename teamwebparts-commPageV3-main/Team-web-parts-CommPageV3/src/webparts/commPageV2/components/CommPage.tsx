@@ -8,7 +8,9 @@ import UpEvents from './Upcoming Events/UpEvents';
 import Qlinks from './Quick Links/Qlinks';
 import Footer from './Footer/footer';
 import Navbar from './Header/navbar';
-import CommentV1 from './LartestNews/CommentsV5';
+//import CommentV1 from './LartestNews/CommentsV5';
+import ContactUs from './Contactez nous/ContactUs';
+
 
 const CommPage: React.FC<{ context: WebPartContext }> = ({ context }) => {
     return (
@@ -17,8 +19,8 @@ const CommPage: React.FC<{ context: WebPartContext }> = ({ context }) => {
             <FirstBanner />
             <LatestNews context={context} />
             <UpEvents />
+            <ContactUs/>
             <Qlinks />
-            <CommentV1 />
             <Footer />
         </div>
     );
