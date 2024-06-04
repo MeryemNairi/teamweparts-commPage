@@ -1,7 +1,11 @@
 import * as React from 'react';
 import styles from './FirstBanner.module.scss';
 
-const FirstBanner: React.FC = () => {
+interface FirstBannerProps {
+    onShowSavoirPlus: () => void;
+}
+
+const FirstBanner: React.FC<FirstBannerProps> = ({ onShowSavoirPlus }) => {
     const backgroundImageStyle: React.CSSProperties = {
         backgroundImage: `url(${require('./BackgroundCom.png')})`,
         backgroundSize: 'contain',
@@ -30,7 +34,7 @@ const FirstBanner: React.FC = () => {
                     <div className={styles.card}>
                         <h2 style={{ fontWeight: 'bold', color: '#000' }}>Reconnaissez un collègue ou une équipe aujourd'hui !</h2>
                         <p>Célébrez le travail d'équipe exceptionnel à l'aide de notre portail "Meilleurs Ensemble", ou soumettez une candidature pour un collègue pour un prix d'excellence et d'innovation.</p>
-                        <a href="lien_vers_votre_page" className={styles.button}>Savoir Plus</a>
+                        <button style={{ backgroundColor: '#58C1A3', border: 'none'}} onClick={onShowSavoirPlus}>En savoir plus</button>
                     </div>
                 </div>
             </div>

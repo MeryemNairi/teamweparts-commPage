@@ -57,3 +57,20 @@
 .reactionButton:hover {
   color: blue; // Changer la couleur au survol
 }
+/* Ajouter ces règles CSS à votre fichier Forme.module.scss ou à votre fichier de styles */
+
+.reactionButton:hover {
+  transform: scale(1.1); /* Agrandir le bouton de 10% au survol */
+  transition: transform 0.3s ease; /* Ajouter une transition fluide */
+}
+
+
+.button:hover .likeIcon {
+  transform: scale(1.1); /* Agrandir l'icône de 10% au survol */
+  transition: transform 0.3s ease; /* Ajouter une transition fluide */
+}
+
+.button:hover .dislikeIcon {
+  transform: scale(1.1); /* Agrandir l'icône de 10% au survol */
+  transition: transform 0.3s ease; /* Ajouter une transition fluide */
+}
