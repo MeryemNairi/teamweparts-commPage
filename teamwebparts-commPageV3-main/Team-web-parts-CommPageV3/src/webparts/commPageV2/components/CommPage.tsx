@@ -11,6 +11,7 @@ import Footer from './Footer/footer';
 import Navbar from './Header/navbar';
 import SavoirPlus from './First Banner/SavoirPlus';
 import ContactUs from './Contactez nous/ContactUs';
+import Forme from './PeopleSearch/Forme';
 
 const CommPage: React.FC<{ context: WebPartContext }> = ({ context }) => {
     const [showSavoirPlus, setShowSavoirPlus] = React.useState(false);
@@ -40,6 +41,7 @@ const CommPage: React.FC<{ context: WebPartContext }> = ({ context }) => {
 
     return (
         <div className={styles.CommPage}>
+            <Forme context={context} />
             <Navbar />
             <FirstBanner onShowSavoirPlus={handleShowSavoirPlus} />
             <div
