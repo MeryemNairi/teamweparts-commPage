@@ -1,14 +1,13 @@
-/* Qlinks.module.css */
-.FinalePart {
-    /* Your styles for FinalePart */    
+.FinalePart {  
     width: 100%;
     min-height: 530px;
     max-height: 650px;
     height: auto;
     background-color: #58C1A3;
     padding: 3rem;
-    position: relative;
+    position: center;
     display: flex;
+    justify-content: center; /* Ajouté pour centrer horizontalement */
     flex-direction: row;
     gap: 2rem;
     
@@ -37,32 +36,26 @@
     height: 100%; /* Set the image height to fill the container */
     object-fit: cover;  
 }
-.Navigation_btn{
+
+.Navigation_btn {
     position: absolute;
     width: 95%;
-    
     top: 45%;
     left: 0;
     display: flex;
     justify-content: space-between;
     padding: 1rem;
-
 }
-
-.prevBtn ,.nextBtn{
+.prevBtn, .nextBtn {
     text-decoration: none;
     cursor: pointer;
     border: none;
-    height: auto;
-    width: auto;
     background-color: transparent;
     transition: .2s ease;
 }
-.prevBtn:hover{
-    scale: 1.2;
-}
-.nextBtn:hover{
-    scale: 1.2;
+
+.prevBtn:hover, .nextBtn:hover {
+    transform: scale(1.2);
 }
 .FP_right {
     /* Your styles for FP_right */
