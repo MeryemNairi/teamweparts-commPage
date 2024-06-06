@@ -43,8 +43,17 @@ const ContactUs: React.FC = () => {
 
       <div className={styles.ContactUs_container}>
         <div className={styles.container}>
-          <div >
-          <img src="./Maps-Rabat-Fes.PNG" alt="map" />
+          <div style={{  padding: '10px', position: 'relative',background: '#58C1A3' }}>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3857.6560627648537!2d-6.7229756933824305!3d33.99028121499009!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda741185d43bd5b%3A0x8940dbf8b62c60a7!2scnexia%20tech!5e0!3m2!1sen!2sma!4v1717708498449!5m2!1sen!2sma"
+              width="550"
+              height="320"
+              loading="lazy"
+              style={{ border: 0 }}
+            ></iframe>
+            <div style={{ position: 'absolute', bottom: '0', left: '0', background: '#58C1A3', padding: '5px' }}>
+              <p>Technopolis - Rabat</p>
+            </div>
           </div>
           <div className={styles.UpE_right}>
             <div className={styles.Contact_title}>
