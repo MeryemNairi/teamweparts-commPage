@@ -35,8 +35,8 @@ export const Forme: React.FC<IFormProps> = ({ context, newsId }) => {
 
   const handleLike = async () => {
     try {
-      if (isSubmitting) return; // Empêcher les clics multiples
-      setIsSubmitting(true); // Désactiver le bouton de like temporairement
+      if (isSubmitting) return; 
+      setIsSubmitting(true); 
   
       const existingEntryIndex = formEntries.findIndex(
         entry => entry.user === formData.user
@@ -55,27 +55,27 @@ export const Forme: React.FC<IFormProps> = ({ context, newsId }) => {
             ...formData,
             likes: 1
           });
-          fetchFormData(); // Rafraîchit les données
+          fetchFormData(); 
         }
       } else {
         await submitForm({
           ...formData,
           likes: 1
         });
-        fetchFormData(); // Rafraîchit les données
+        fetchFormData();
       }
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('An error occurred while submitting the form. Please try again.');
     } finally {
-      setIsSubmitting(false); // Réactiver le bouton de like
+      setTimeout(() => setIsSubmitting(false), 1000); // Réactiver le bouton de like après 1 seconde
     }
   };
   
   const handleDislike = async () => {
     try {
-      if (isSubmitting) return; // Empêcher les clics multiples
-      setIsSubmitting(true); // Désactiver le bouton de dislike temporairement
+      if (isSubmitting) return; 
+      setIsSubmitting(true); 
   
       const existingEntryIndex = formEntries.findIndex(
         entry => entry.user === formData.user
@@ -94,20 +94,20 @@ export const Forme: React.FC<IFormProps> = ({ context, newsId }) => {
             ...formData,
             likes: -1
           });
-          fetchFormData(); // Rafraîchit les données
+          fetchFormData(); 
         }
       } else {
         await submitForm({
           ...formData,
           likes: -1
         });
-        fetchFormData(); // Rafraîchit les données
+        fetchFormData(); 
       }
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('An error occurred while submitting the form. Please try again.');
     } finally {
-      setIsSubmitting(false); // Réactiver le bouton de dislike
+      setTimeout(() => setIsSubmitting(false), 1000); // Réactiver le bouton de dislike après 1 seconde
     }
   };
   
