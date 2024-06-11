@@ -31,18 +31,32 @@ export const Forme: React.FC<IFormProps> = ({ context, newsId }) => {
     }
   };
 
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
   const handleLike = async () => {
     try {
+      if (isSubmitting) return; // Empêcher les clics multiples
+      setIsSubmitting(true); // Désactiver le bouton de like temporairement
+  
       const existingEntryIndex = formEntries.findIndex(
         entry => entry.user === formData.user
       );
-
+  
       if (existingEntryIndex !== -1) {
         const existingEntry = formEntries[existingEntryIndex];
-        await deleteFormData(existingEntry.id);
-        const updatedEntries = [...formEntries];
-        updatedEntries.splice(existingEntryIndex, 1);
-        setFormEntries(updatedEntries);
+        if (existingEntry.likes === 1) {
+          await deleteFormData(existingEntry.id);
+          const updatedEntries = [...formEntries];
+          updatedEntries.splice(existingEntryIndex, 1);
+          setFormEntries(updatedEntries);
+        } else {
+          await deleteFormData(existingEntry.id);
+          await submitForm({
+            ...formData,
+            likes: 1
+          });
+          fetchFormData(); // Rafraîchit les données
+        }
       } else {
         await submitForm({
           ...formData,
@@ -53,21 +67,35 @@ export const Forme: React.FC<IFormProps> = ({ context, newsId }) => {
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('An error occurred while submitting the form. Please try again.');
+    } finally {
+      setIsSubmitting(false); // Réactiver le bouton de like
     }
   };
-
+  
   const handleDislike = async () => {
     try {
+      if (isSubmitting) return; // Empêcher les clics multiples
+      setIsSubmitting(true); // Désactiver le bouton de dislike temporairement
+  
       const existingEntryIndex = formEntries.findIndex(
         entry => entry.user === formData.user
       );
-
+  
       if (existingEntryIndex !== -1) {
         const existingEntry = formEntries[existingEntryIndex];
-        await deleteFormData(existingEntry.id);
-        const updatedEntries = [...formEntries];
-        updatedEntries.splice(existingEntryIndex, 1);
-        setFormEntries(updatedEntries);
+        if (existingEntry.likes === -1) {
+          await deleteFormData(existingEntry.id);
+          const updatedEntries = [...formEntries];
+          updatedEntries.splice(existingEntryIndex, 1);
+          setFormEntries(updatedEntries);
+        } else {
+          await deleteFormData(existingEntry.id);
+          await submitForm({
+            ...formData,
+            likes: -1
+          });
+          fetchFormData(); // Rafraîchit les données
+        }
       } else {
         await submitForm({
           ...formData,
@@ -78,9 +106,12 @@ export const Forme: React.FC<IFormProps> = ({ context, newsId }) => {
     } catch (error) {
       console.error('Error submitting form:', error);
       alert('An error occurred while submitting the form. Please try again.');
+    } finally {
+      setIsSubmitting(false); // Réactiver le bouton de dislike
     }
   };
-
+  
+  
   const isUserLiked = formEntries.some(entry => entry.user === formData.user && entry.likes === 1);
   const isUserDisliked = formEntries.some(entry => entry.user === formData.user && entry.likes === -1);
 
